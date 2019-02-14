@@ -4,17 +4,33 @@ spring:
     active: 
     - dev
 ---
+server:
+  port: 8201
+
 spring:
    profiles: dev #开发模式
    application: 
-         name: deptspringcloud-config-spring-dev
+         name: deptspringcloud-config-spring-dev-client
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/ #集群参照之前的设置就可以
 ---
 spring: 
    profiles: 
     active: 
     - test
 ---
+server:
+  port: 8202
+         
 spring:
    profiles: test #开发模式
    application: 
-         name: deptspringcloud-config-spring-test
+         name: deptspringcloud-config-spring-test-client
+         
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/ #集群参照之前的设置就可以
